@@ -58,6 +58,7 @@ var charsetInfos = []*Charset{
 	{CharsetASCII, CollationASCII, make(map[string]*Collation), "US ASCII", 1},
 	{CharsetLatin1, CollationLatin1, make(map[string]*Collation), "Latin1", 1},
 	{CharsetBin, CollationBin, make(map[string]*Collation), "binary", 1},
+
 }
 
 // All the names supported collations should be in the following table.
@@ -130,6 +131,7 @@ func GetDefaultCharsetAndCollate() (string, string) {
 func GetCharsetInfo(cs string) (string, string, error) {
 	c, ok := charsets[strings.ToLower(cs)]
 	if !ok {
+
 		return "", "", errors.Errorf("Unknown charset %s", cs)
 	}
 	return c.Name, c.DefaultCollation, nil
